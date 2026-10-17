@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İyi ki Doğdun Kardeşim! 🎉🐾</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary: #ff8fa3;
+            --secondary: #ffb5a7;
+            --accent: #fcd5ce;
+            --bg: #fef8f5;
+            --text: #4a3e3d;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', cursive;
+        }
+
+        /* Banner & Header */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: linear-gradient(135deg, #ffcad4 0%, #ffe5ec 100%);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 20px rgba(255, 143, 163, 0.15);
+            position: relative;
+        }
+
+        header h1 {
+            color: #d64550;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #6a4c4d;
+            font-weight: 700;
+        }
+
+        /* Control Panel / Image Uploader */
+        .upload-section {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+
+        .upload-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .upload-btn:hover {
+            background: #e67389;
+            transform: scale(1.03);
+        }
+
+        /* Interactive Cake Section */
+        .cake-section {
+            text-align: center;
+            margin: 30px 20px;
+        }
+
+        .cake-container {
+            position: relative;
+            width: 180px;
+            height: 160px;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+        .plate {
+            width: 200px;
+            height: 15px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+            left: -10px;
+        }
+
+        .layer {
+            position: absolute;
+            width: 180px;
+            border-radius: 15px 15px 10px 10px;
+        }
+
+        .layer-bottom {
+            height: 50px;
+            background: #ffb5a7;
+            bottom: 15px;
+        }
+
+        .layer-middle {
+            height: 40px;
+            background: #fcd5ce;
+            bottom: 65px;
+            width: 160px;
+            left: 10px;
+        }
+
+        .layer-top {
+            height: 35px;
+            background: #f8edeb;
+            bottom: 105px;
+            width: 140px;
+            left: 20px;
+        }
+
+        .candle {
+            width: 12px;
+            height: 35px;
+            background: repeating-linear-gradient(45deg, #ff4d6d, #ff4d6d 5px, #fff 5px, #fff 10px);
+            position: absolute;
+            bottom: 140px;
+            left: 84px;
+            border-radius: 3px;
+        }
+
+        .flame {
+            width: 14px;
+            height: 20px;
+            background: #ff9e00;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -18px;
+            left: -1px;
+            box-shadow: 0 0 10px #ff9e00;
+            animation: flicker 0.6s infinite alternate;
+        }
+
+        .flame.off {
+            display: none;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* Memory Gallery */
+        .gallery-title {
+            text-align: center;
+            color: #d64550;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 15px;
+            width: 280px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #f0f0f0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-caption {
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 700;
+            color: #5a4041;
+            font-size: 1.05rem;
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 1.8rem;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+        }
+
+        /* Message Box */
+        .message-card {
+            max-width: 600px;
+            margin: 40px auto 20px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(255, 143, 163, 0.2);
+            text-align: center;
+            position: relative;
+            border: 2px solid var(--accent);
+        }
+
+        .message-card h3 {
+            color: #d64550;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .message-card p {
+            line-height: 1.7;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        /* Music Controls */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎉 İyi ki Doğdun Kardeşim! 🐾</h1>
+        <p>Senin gibi tatlı bir kardeş dünyada tek! ❤️</p>
+    </header>
+
+    <!-- Fotoğraf Yükleme / Güncelleme Kutusu -->
+    <div class="upload-section">
+        <p style="font-size: 0.9rem; color: #777;">Fotoğraflar görünmüyorsa cihazından seçip tek tıkla yükleyebilirsin:</p>
+        <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
+        <button class="upload-btn" onclick="document.getElementById('imageInput').click()">📷 Fotoğrafları Seç / Yükle</button>
+    </div>
+
+    <!-- Pasta Üfleme Alanı -->
+    <div class="cake-section">
+        <h3>Mumu Üflemek İçin Pastaya Tıkla! 🎂</h3>
+        <div class="cake-container" onclick="toggleCandle()">
+            <div class="candle">
+                <div class="flame" id="flame"></div>
+            </div>
+            <div class="layer layer-top"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-bottom"></div>
+            <div class="plate"></div>
+        </div>
+        <p id="cakeStatus" style="font-weight: bold; color: #d64550;">Mum yanıyor... Dilek tut! ✨</p>
+    </div>
+
+    <!-- Fotoğraf Galerisi -->
+    <h2 class="gallery-title">🐾 En Özel Anılar & Sevimli Dostlar 🐾</h2>
+    <div class="gallery">
+
+        <!-- Kart 1 -->
+        <div class="card">
+            <span class="badge">🐱</span>
+            <div class="card-img-wrapper">
+                <img id="img1" src="kedi1.jpg" alt="Meraklı Kedi" onerror="handleError(this, 'Sarı Kedi Fotoğrafı')">
+            </div>
+            <div class="card-caption">Tatlı Şaşkın Bakışlar 🐱✨</div>
+        </div>
+
+        <!-- Kart 2 -->
+        <div class="card">
+            <span class="badge">🐥</span>
+            <div class="card-img-wrapper">
+                <img id="img2" src="civcivler.jpg" alt="Minik Civcivler" onerror="handleError(this, 'Civcivler Fotoğrafı')">
+            </div>
+            <div class="card-caption">Minik Sevimli Dostlar 🐣💛</div>
+        </div>
+
+        <!-- Kart 3 -->
+        <div class="card">
+            <span class="badge">👑</span>
+            <div class="card-img-wrapper">
+                <img id="img3" src="kedi2.jpg" alt="Keyifçi Kedi" onerror="handleError(this, 'Yatan Kedi Fotoğrafı')">
+            </div>
+            <div class="card-caption">Keyfimize Diyecek Yok! 💤😸</div>
+        </div>
+
+        <!-- Kart 4 -->
+        <div class="card">
+            <span class="badge">🚗</span>
+            <div class="card-img-wrapper">
+                <img id="img4" src="kardesim.jpg" alt="Dünyanın En Tatlı Kardeşi" onerror="handleError(this, 'Çocukluk Fotoğrafı')">
+            </div>
+            <div class="card-caption">Dünyanın En Tatlı Kardeşi 🚗💖</div>
+        </div>
+
+    </div>
+
+    <!-- Kutlama Mesajı -->
+    <div class="message-card">
+        <h3>İyi Ki Varsın! 🥳</h3>
+        <p>
+            Yeni yaşın sana sağlık, mutluluk ve başarı getirsin! Hayatın boyunca yüzün hep böyle gülsün. 
+            Kediler, sevimli dostlar ve sevdiklerinle birlikte harika bir yaş geçirmen dileğiyle! 🎉🎂
+        </p>
+    </div>
+
+    <!-- Müzik Butonu -->
+    <button class="music-btn" onclick="toggleAudio()">
+        🎵 <span id="musicText">Müziği Başlat</span>
+    </button>
+
+    <script>
+        // Konfeti Yağmuru
+        function launchConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+        window.onload = () => {
+            launchConfetti();
+        };
+
+        // Mum söndürme
+        let candleLit = true;
+        function toggleCandle() {
+            const flame = document.getElementById('flame');
+            const status = document.getElementById('cakeStatus');
+            if (candleLit) {
+                flame.classList.add('off');
+                status.innerText = "İyi ki doğdun! Dileğin kabul olsun! 🎉🎈";
+                launchConfetti();
+                candleLit = false;
+            } else {
+                flame.classList.remove('off');
+                status.innerText = "Mum yanıyor... Dilek tut! ✨";
+                candleLit = true;
+            }
+        }
+
+        // Görsel Yüklenemediğinde Uyarı
+        function handleError(img, name) {
+            img.style.display = 'none';
+            const parent = img.parentElement;
+            parent.innerHTML = `<div style="text-align:center; padding:10px; color:#888; font-size:0.85rem;">
+                ⚠️<br><b>${name}</b><br>Görsel Seç Butonundan Fotoğrafı Yükleyebilirsin
+            </div>`;
+        }
+
+        // Cihazdan Fotoğraf Seçip Gösterme Yeteneği
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                const imgElements = [document.getElementById('img1'), document.getElementById('img2'), document.getElementById('img3'), document.getElementById('img4')];
+                
+                for(let i=0; i < Math.min(files.length, 4); i++) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const cardWrapper = imgElements[i].parentElement;
+                        cardWrapper.innerHTML = `<img src="${event.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
+                    };
+                    reader.readAsDataURL(files[i]);
+                }
+            }
+        });
+
+        // Arka Plan Müzik Sentezleyicisi (Web Audio API)
+        let audioCtx = null;
+        let isPlaying = false;
+        let timer = null;
+
+        function toggleAudio() {
+            const btnText = document.getElementById('musicText');
+            if (!isPlaying) {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                isPlaying = true;
+                btnText.innerText = "Müziği Durdur";
+                playHappyBirthday();
+            } else {
+                isPlaying = false;
+                btnText.innerText = "Müziği Başlat";
+                if(timer) clearTimeout(timer);
+            }
+        }
+
+        function playNote(freq, duration) {
+            if(!isPlaying) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        function playHappyBirthday() {
+            const notes = [
+                {f: 264, d: 0.4}, {f: 264, d: 0.4}, {f: 297, d: 0.8}, {f: 264, d: 0.8}, {f: 352, d: 0.8}, {f: 330, d: 1.2},
+                {f: 264, d: 0.4}, {f: 264, d: 0.4}, {f: 297, d: 0.8}, {f: 264, d: 0.8}, {f: 396, d: 0.8}, {f: 352, d: 1.2}
+            ];
+            let idx = 0;
+            function step() {
+                if (!isPlaying) return;
+                playNote(notes[idx].f, notes[idx].d);
+                idx = (idx + 1) % notes.length;
+                timer = setTimeout(step, notes[idx].d * 600);
+            }
+            step();
+        }
+    </script>
+</body>
+</html>
