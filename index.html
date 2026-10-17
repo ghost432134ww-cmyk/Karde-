@@ -11,7 +11,7 @@
             --primary: #ff8fa3;
             --secondary: #ffb5a7;
             --accent: #fcd5ce;
-            --bg: #fef8f5;
+            --bg: #fff0f3;
             --text: #4a3e3d;
             --card-bg: #ffffff;
         }
@@ -27,7 +27,7 @@
             background-color: var(--bg);
             color: var(--text);
             overflow-x: hidden;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
         h1, h2, h3 {
@@ -37,129 +37,106 @@
         /* Banner & Header */
         header {
             text-align: center;
-            padding: 40px 20px 20px;
+            padding: 50px 20px 30px;
             background: linear-gradient(135deg, #ffcad4 0%, #ffe5ec 100%);
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 10px 20px rgba(255, 143, 163, 0.15);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 25px rgba(255, 143, 163, 0.2);
             position: relative;
         }
 
         header h1 {
             color: #d64550;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            margin-bottom: 12px;
             text-shadow: 2px 2px 0px #fff;
         }
 
         header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #6a4c4d;
             font-weight: 700;
-        }
-
-        /* Control Panel / Image Uploader */
-        .upload-section {
-            max-width: 600px;
-            margin: 20px auto;
-            background: #ffffff;
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            border: 2px dashed var(--primary);
-        }
-
-        .upload-btn {
-            background: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            display: inline-block;
-            margin-top: 5px;
-        }
-
-        .upload-btn:hover {
-            background: #e67389;
-            transform: scale(1.03);
         }
 
         /* Interactive Cake Section */
         .cake-section {
             text-align: center;
-            margin: 30px 20px;
+            margin: 40px 20px;
+        }
+
+        .cake-section h3 {
+            color: #d64550;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .cake-container {
             position: relative;
-            width: 180px;
-            height: 160px;
+            width: 200px;
+            height: 170px;
             margin: 20px auto;
             cursor: pointer;
         }
 
         .plate {
-            width: 200px;
-            height: 15px;
+            width: 230px;
+            height: 16px;
             background: #e0e0e0;
             border-radius: 10px;
             position: absolute;
             bottom: 0;
-            left: -10px;
+            left: -15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .layer {
             position: absolute;
-            width: 180px;
             border-radius: 15px 15px 10px 10px;
         }
 
         .layer-bottom {
-            height: 50px;
+            width: 200px;
+            height: 55px;
             background: #ffb5a7;
-            bottom: 15px;
+            bottom: 16px;
+            left: 0;
         }
 
         .layer-middle {
-            height: 40px;
+            width: 170px;
+            height: 45px;
             background: #fcd5ce;
-            bottom: 65px;
-            width: 160px;
-            left: 10px;
+            bottom: 71px;
+            left: 15px;
         }
 
         .layer-top {
-            height: 35px;
-            background: #f8edeb;
-            bottom: 105px;
             width: 140px;
-            left: 20px;
+            height: 40px;
+            background: #f8edeb;
+            bottom: 116px;
+            left: 30px;
         }
 
         .candle {
-            width: 12px;
-            height: 35px;
-            background: repeating-linear-gradient(45deg, #ff4d6d, #ff4d6d 5px, #fff 5px, #fff 10px);
+            width: 14px;
+            height: 40px;
+            background: repeating-linear-gradient(45deg, #ff4d6d, #ff4d6d 6px, #fff 6px, #fff 12px);
             position: absolute;
-            bottom: 140px;
-            left: 84px;
-            border-radius: 3px;
+            bottom: 156px;
+            left: 93px;
+            border-radius: 4px;
         }
 
         .flame {
-            width: 14px;
-            height: 20px;
+            width: 16px;
+            height: 24px;
             background: #ff9e00;
             border-radius: 50% 50% 20% 20%;
             position: absolute;
-            top: -18px;
+            top: -22px;
             left: -1px;
-            box-shadow: 0 0 10px #ff9e00;
+            box-shadow: 0 0 12px #ff9e00, 0 0 20px #ff0000;
             animation: flicker 0.6s infinite alternate;
         }
 
@@ -172,15 +149,15 @@
             100% { transform: scale(1.15); }
         }
 
-        /* Memory Gallery */
-        .gallery-title {
+        /* Cat Playground Section */
+        .cat-section-title {
             text-align: center;
             color: #d64550;
-            margin: 40px 0 20px;
-            font-size: 1.8rem;
+            margin: 50px 0 25px;
+            font-size: 2rem;
         }
 
-        .gallery {
+        .cats-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -190,122 +167,132 @@
             padding: 0 20px;
         }
 
-        .card {
+        .cat-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 15px;
+            border-radius: 25px;
+            padding: 25px 20px;
             width: 280px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 25px rgba(255, 143, 163, 0.15);
+            text-align: center;
             position: relative;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 3px solid #fff;
+            cursor: pointer;
         }
 
-        .card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        .cat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 143, 163, 0.25);
         }
 
-        .card-img-wrapper {
-            width: 100%;
-            height: 280px;
-            border-radius: 15px;
-            overflow: hidden;
-            background: #f0f0f0;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .cat-avatar {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            display: block;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.08));
         }
 
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .cat-title {
+            font-size: 1.3rem;
+            color: #d64550;
+            margin-bottom: 8px;
         }
 
-        .card-caption {
+        .cat-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Surprise Gift Section */
+        .gift-section {
             text-align: center;
-            margin-top: 12px;
-            font-weight: 700;
-            color: #5a4041;
-            font-size: 1.05rem;
+            margin: 50px 20px 30px;
         }
 
-        .badge {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            font-size: 1.8rem;
-            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+        .gift-box {
+            font-size: 5rem;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.3s;
+            animation: bounce 2s infinite;
         }
 
-        /* Message Box */
+        .gift-box:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* Message Card */
         .message-card {
-            max-width: 600px;
+            max-width: 650px;
             margin: 40px auto 20px;
             background: #fff;
-            padding: 30px;
-            border-radius: 25px;
+            padding: 35px 25px;
+            border-radius: 30px;
             box-shadow: 0 10px 30px rgba(255, 143, 163, 0.2);
             text-align: center;
             position: relative;
-            border: 2px solid var(--accent);
+            border: 3px solid var(--accent);
         }
 
         .message-card h3 {
             color: #d64550;
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .message-card p {
-            line-height: 1.7;
+            line-height: 1.8;
             color: #555;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
-        /* Music Controls */
+        /* Music Floating Button */
         .music-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: #ff4d6d;
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 14px 24px;
             border-radius: 30px;
             font-weight: bold;
+            font-size: 1rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
             z-index: 100;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            transition: transform 0.2s;
         }
 
-        /* Responsive */
+        .music-btn:hover {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .card { width: 100%; }
+            header h1 { font-size: 2rem; }
+            .cat-card { width: 100%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Başlık -->
     <header>
         <h1>🎉 İyi ki Doğdun Kardeşim! 🐾</h1>
-        <p>Senin gibi tatlı bir kardeş dünyada tek! ❤️</p>
+        <p>Dünyanın en tatlı ve en özel kardeşine mutlu yıllar! ❤️✨</p>
     </header>
 
-    <!-- Fotoğraf Yükleme / Güncelleme Kutusu -->
-    <div class="upload-section">
-        <p style="font-size: 0.9rem; color: #777;">Fotoğraflar görünmüyorsa cihazından seçip tek tıkla yükleyebilirsin:</p>
-        <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
-        <button class="upload-btn" onclick="document.getElementById('imageInput').click()">📷 Fotoğrafları Seç / Yükle</button>
-    </div>
-
-    <!-- Pasta Üfleme Alanı -->
+    <!-- İnteraktif Pasta -->
     <div class="cake-section">
         <h3>Mumu Üflemek İçin Pastaya Tıkla! 🎂</h3>
         <div class="cake-container" onclick="toggleCandle()">
@@ -317,57 +304,54 @@
             <div class="layer layer-bottom"></div>
             <div class="plate"></div>
         </div>
-        <p id="cakeStatus" style="font-weight: bold; color: #d64550;">Mum yanıyor... Dilek tut! ✨</p>
+        <p id="cakeStatus" style="font-weight: bold; color: #d64550; font-size: 1.1rem;">Mum yanıyor... Güzel bir dilek tut! ✨</p>
     </div>
 
-    <!-- Fotoğraf Galerisi -->
-    <h2 class="gallery-title">🐾 En Özel Anılar & Sevimli Dostlar 🐾</h2>
-    <div class="gallery">
+    <!-- Kedi Krallığı -->
+    <h2 class="cat-section-title">🐾 Sevimli Kedi Dostların 🐾</h2>
+    <div class="cats-grid">
 
-        <!-- Kart 1 -->
-        <div class="card">
-            <span class="badge">🐱</span>
-            <div class="card-img-wrapper">
-                <img id="img1" src="kedi1.jpg" alt="Meraklı Kedi" onerror="handleError(this, 'Sarı Kedi Fotoğrafı')">
-            </div>
-            <div class="card-caption">Tatlı Şaşkın Bakışlar 🐱✨</div>
+        <div class="cat-card" onclick="meowSound()">
+            <span class="cat-avatar">😸</span>
+            <div class="cat-title">Miyav Şeker</div>
+            <div class="cat-desc">Sana kocaman sarılmak ve doğum gününü kutlamak istiyor! (Miyavlatmak için tıkla)</div>
         </div>
 
-        <!-- Kart 2 -->
-        <div class="card">
-            <span class="badge">🐥</span>
-            <div class="card-img-wrapper">
-                <img id="img2" src="civcivler.jpg" alt="Minik Civcivler" onerror="handleError(this, 'Civcivler Fotoğrafı')">
-            </div>
-            <div class="card-caption">Minik Sevimli Dostlar 🐣💛</div>
+        <div class="cat-card" onclick="meowSound()">
+            <span class="cat-avatar">😻</span>
+            <div class="cat-title">Aşık Kedi</div>
+            <div class="cat-desc">Bugün tamamen senin günün! Sana bolca sevgi gönderiyor. ✨</div>
         </div>
 
-        <!-- Kart 3 -->
-        <div class="card">
-            <span class="badge">👑</span>
-            <div class="card-img-wrapper">
-                <img id="img3" src="kedi2.jpg" alt="Keyifçi Kedi" onerror="handleError(this, 'Yatan Kedi Fotoğrafı')">
-            </div>
-            <div class="card-caption">Keyfimize Diyecek Yok! 💤😸</div>
+        <div class="cat-card" onclick="meowSound()">
+            <span class="cat-avatar">😽</span>
+            <div class="cat-title">Göz Kırpan Kedi</div>
+            <div class="cat-desc">Pastadan bir dilim kapmak için pusuya yattı bile! 🎂</div>
         </div>
 
-        <!-- Kart 4 -->
-        <div class="card">
-            <span class="badge">🚗</span>
-            <div class="card-img-wrapper">
-                <img id="img4" src="kardesim.jpg" alt="Dünyanın En Tatlı Kardeşi" onerror="handleError(this, 'Çocukluk Fotoğrafı')">
-            </div>
-            <div class="card-caption">Dünyanın En Tatlı Kardeşi 🚗💖</div>
+        <div class="cat-card" onclick="meowSound()">
+            <span class="cat-avatar">😹</span>
+            <div class="cat-title">Neşeli Kedi</div>
+            <div class="cat-desc">Yeni yaşında bol bol kahkaha ve mutluluk diler! 🎈</div>
         </div>
 
     </div>
 
-    <!-- Kutlama Mesajı -->
+    <!-- Sürpriz Hediye Kutusu -->
+    <div class="gift-section">
+        <h3 style="color: #d64550; margin-bottom: 10px;">🎁 Sürpriz Kutuyu Aç!</h3>
+        <div class="gift-box" onclick="openGift()">🎁</div>
+        <p id="giftMessage" style="font-weight: bold; color: #ff4d6d; margin-top: 10px; font-size: 1.2rem; display: none;">
+            🐾 Sürpriz! Yeni yaşında tüm dileklerin gerçek olsun! 🌟🎉
+        </p>
+    </div>
+
+    <!-- Doğum Günü Mesajı -->
     <div class="message-card">
-        <h3>İyi Ki Varsın! 🥳</h3>
+        <h3>İyi Ki Varsın! 🥳💖</h3>
         <p>
-            Yeni yaşın sana sağlık, mutluluk ve başarı getirsin! Hayatın boyunca yüzün hep böyle gülsün. 
-            Kediler, sevimli dostlar ve sevdiklerinle birlikte harika bir yaş geçirmen dileğiyle! 🎉🎂
+            Canım kardeşim, yeni yaşın sana sağlık, huzur, başarı ve bolca mutluluk getirsin! 
+            Hayatın boyunca yüzün hep böyle gülsün. Kedilerin neşesi ve sevimliliği hayatından hiç eksik olmasın! 🐾🎂🎉
         </p>
     </div>
 
@@ -377,11 +361,11 @@
     </button>
 
     <script>
-        // Konfeti Yağmuru
+        // Sayfa Yüklendiğinde Konfeti Yağmuru
         function launchConfetti() {
             confetti({
-                particleCount: 100,
-                spread: 70,
+                particleCount: 120,
+                spread: 80,
                 origin: { y: 0.6 }
             });
         }
@@ -389,50 +373,52 @@
             launchConfetti();
         };
 
-        // Mum söndürme
+        // Mum Üfleme Mantığı
         let candleLit = true;
         function toggleCandle() {
             const flame = document.getElementById('flame');
             const status = document.getElementById('cakeStatus');
             if (candleLit) {
                 flame.classList.add('off');
-                status.innerText = "İyi ki doğdun! Dileğin kabul olsun! 🎉🎈";
+                status.innerText = "İyi ki doğdun! Tüm dileklerin kabul olsun! 🎉🎈";
                 launchConfetti();
                 candleLit = false;
             } else {
                 flame.classList.remove('off');
-                status.innerText = "Mum yanıyor... Dilek tut! ✨";
+                status.innerText = "Mum yanıyor... Güzel bir dilek tut! ✨";
                 candleLit = true;
             }
         }
 
-        // Görsel Yüklenemediğinde Uyarı
-        function handleError(img, name) {
-            img.style.display = 'none';
-            const parent = img.parentElement;
-            parent.innerHTML = `<div style="text-align:center; padding:10px; color:#888; font-size:0.85rem;">
-                ⚠️<br><b>${name}</b><br>Görsel Seç Butonundan Fotoğrafı Yükleyebilirsin
-            </div>`;
+        // Sürpriz Kutusu
+        function openGift() {
+            const msg = document.getElementById('giftMessage');
+            msg.style.display = 'block';
+            launchConfetti();
         }
 
-        // Cihazdan Fotoğraf Seçip Gösterme Yeteneği
-        document.getElementById('imageInput').addEventListener('change', function(e) {
-            const files = e.target.files;
-            if (files.length > 0) {
-                const imgElements = [document.getElementById('img1'), document.getElementById('img2'), document.getElementById('img3'), document.getElementById('img4')];
-                
-                for(let i=0; i < Math.min(files.length, 4); i++) {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        const cardWrapper = imgElements[i].parentElement;
-                        cardWrapper.innerHTML = `<img src="${event.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
-                    };
-                    reader.readAsDataURL(files[i]);
-                }
-            }
-        });
+        // Kedi Miyavlama Sesi (Web Audio API)
+        function meowSound() {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(500, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(1000, ctx.currentTime + 0.15);
+            osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.3);
 
-        // Arka Plan Müzik Sentezleyicisi (Web Audio API)
+            gain.gain.setValueAtTime(0.2, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            
+            osc.start();
+            osc.stop(ctx.currentTime + 0.3);
+        }
+
+        // Doğum Günü Müziği (Web Audio API)
         let audioCtx = null;
         let isPlaying = false;
         let timer = null;
@@ -457,7 +443,7 @@
             const gain = audioCtx.createGain();
             osc.type = 'sine';
             osc.frequency.value = freq;
-            gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
             gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
             osc.connect(gain);
             gain.connect(audioCtx.destination);
